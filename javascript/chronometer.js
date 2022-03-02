@@ -75,7 +75,6 @@ class Chronometer {
       }
     }, 10);
   }
-
 }
 
 // The following is required to make unit tests work.
