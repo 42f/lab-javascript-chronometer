@@ -14,52 +14,79 @@ const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
 }
 
 function printMinutes() {
-  // ... your code goes here
 }
 
 function printSeconds() {
-  // ... your code goes here
 }
 
 // ==> BONUS
 function printMilliseconds() {
-  // ... your code goes here
 }
 
 function printSplit() {
-  // ... your code goes here
 }
 
 function clearSplits() {
-  // ... your code goes here
 }
+
+// left
 
 function setStopBtn() {
-  // ... your code goes here
-}
-
-function setSplitBtn() {
-  // ... your code goes here
+  btnLeftElement.classList.toggle('start', false)
+  btnLeftElement.classList.toggle('stop')
+  btnLeftElement.innerText = 'STOP';
 }
 
 function setStartBtn() {
-  // ... your code goes here
+  btnLeftElement.classList.toggle('stop', false)
+  btnLeftElement.classList.toggle('start');
+  btnLeftElement.innerText = 'START';
+}
+
+// right
+
+function setSplitBtn() {
+  btnRightElement.classList.toggle('reset', false)
+  btnRightElement.classList.toggle('split');
+  btnRightElement.innerText = 'SPLIT';
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRightElement.classList.toggle('split', false)
+  btnRightElement.classList.toggle('reset');
+  btnRightElement.innerText = 'RESET';
 }
+
+let chronoStarted = false;
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
+  console.log('yey');
+  chronoStarted = !chronoStarted;
+  if (chronoStarted) {
+    chronometer.start(() => {
+      chronometer.currentTime++;
+      console.log(chronometer.currentTime)
+    });
+    setStopBtn();
+    setSplitBtn();
+  } else {
+    chronometer.stop();
+    setStartBtn();
+    setResetBtn();
+  }
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
+  // if (chronoStarted) {
+  //   setStopBtn();
+  //   setSplitBtn();
+  // } else {
+  //   setStartBtn();
+  //   setResetBtn();
+  // }
 });
